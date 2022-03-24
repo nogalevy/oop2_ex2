@@ -10,9 +10,9 @@ public:
 	Field(const std::string q);
 
 	void addValidator(BaseValidator<T>* validator);
-	void fillField() override;
-	bool validateField() override;
-	void printField(std::ostream& ostr) override;
+	void fillField();
+	bool validateField();
+	void printField(std::ostream& ostr);
 private:
 	T m_answer;
 	std::vector<BaseValidator<T>*> m_validator;
@@ -32,6 +32,7 @@ template<class T>
 void Field<T>::addValidator(BaseValidator<T>* validator) //Tali: maybe  BaseValidator<T>* const validator - cause of address??
 {
 	m_validator.emplace_back(validator);
+	std::cout << "added validator to field BRUH\n";
 }
 
 //----------------------------------------------------
@@ -40,14 +41,14 @@ template<class T>
 void Field<T>::fillField()
 {
 	printQuestion();
-	std::endl;
-	std::cin >> m_answer;
+	std::cout << std::endl;
+	//std::cin >> m_answer;
 }
 
 //----------------------------------------------------
 
 template<class T>
-bool Field<T>::validateField() override
+bool Field<T>::validateField()
 {
 	setFieldValidity(true);
 
@@ -60,7 +61,7 @@ bool Field<T>::validateField() override
 }
 
 template<class T>
-void Field<T>::printField(std::ostream& ostr) override
+void Field<T>::printField(std::ostream& ostr)
 {
 	printQuestion();
 	//ostr << " = " << m_answer;

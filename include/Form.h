@@ -20,5 +20,4 @@ private:
 	std::vector<BaseFormValidator*> m_2FieldValidators;
 
 };
-//operator<<
 std::ostream& operator<<(std::ostream& ostr, const Form& my_form);
