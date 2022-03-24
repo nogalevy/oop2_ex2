@@ -1,10 +1,15 @@
 #pragma once
 
+#include "BaseField.h"
 
-class BaseValidator {
+template <class T>
+class BaseValidator
+{
 public:
-	BaseValidator() = default;
-	//virtual void validate();
-private:
+	BaseValidator() {}
+	~BaseValidator() = default;
 
+	virtual bool validate(T answer)const = 0;
+private:
+	T m;
 };

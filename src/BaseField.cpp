@@ -1,7 +1,7 @@
 #include "BaseField.h"
 
 BaseField::BaseField(const std::string msg)
-	:m_message(msg), m_isValid(false)
+	:m_question(msg), m_isValid(false)
 {
 
 }
