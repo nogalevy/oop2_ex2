@@ -9,13 +9,16 @@
 class Form {
 public:
 	Form() = default;
-	//void fillForm();
-	//void addField();
-	//void addValidator();
-	//bool ValidateForm();
+	~Form();
+	void fillForm();
+	void addField(BaseField* field);
+	void addValidator(BaseFormValidator* formValidator);
+	bool validateForm();
+	void printForm(std::ostream& ostr)const;
 private:
-	std::vector<std::unique_ptr<BaseField>> m_fields;
-	std::vector<std::unique_ptr<BaseFormValidator>> m_2FieldValidators;
+	std::vector <BaseField*> m_fields;
+	std::vector<BaseFormValidator*> m_2FieldValidators;
 
 };
 //operator<<
+std::ostream& operator<<(std::ostream& ostr, const Form& my_form);

@@ -15,3 +15,8 @@ bool BaseField::getFieldValidity() const
 {
 	return m_isValid;
 }
+
+void BaseField::printQuestion() const
+{
+	std::cout << m_question;
+}

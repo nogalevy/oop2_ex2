@@ -7,11 +7,14 @@ template<class T>
 class Field : public BaseField {
 public:
 	Field(const std::string q);
-	virtual void addValidator(BaseValidator<T>* validator);
-	bool validate() {/*m_validator.validate(m_answer); */};
+
+	void addValidator(BaseValidator<T>* validator);
+	void fillField() override;
+	bool validateField() override;
+	void printField(std::ostream& ostr) override;
 private:
 	T m_answer
-	std::vector<std::unique_ptr<BaseValidator<T>>> m_validator;
+	std::vector<BaseValidator<T>*> m_validator;
 };
 
 //----------------------------------------------------
@@ -25,7 +28,39 @@ Field<T>::Field(const std::string q)
 //----------------------------------------------------
 
 template<class T>
-void Field<T>::addValidator(BaseValidator<T>* validator)
+void Field<T>::addValidator(BaseValidator<T>* validator) //Tali: maybe  BaseValidator<T>* const validator - cause of address??
 {
 	m_validator.emplace_back(validator);
+}
+
+//----------------------------------------------------
+
+template<class T>
+void Field<T>::fillField()
+{
+	printQuestion();
+	std::endl;
+	std::cin >> m_answer;
+}
+
+//----------------------------------------------------
+
+template<class T>
+bool Field<T>::validateField() override
+{
+	setFieldValidity(true);
+
+	for (auto& val : m_validator)
+	{
+		if (!val->validate(m_answer))
+			setFieldValidity(false);
+	}
+	return getFieldValidity();
+}
+
+template<class T>
+void Field<T>::printField(std::ostream& ostr) override
+{
+	printQuestion();
+	//ostr << " = " << m_answer;
 }

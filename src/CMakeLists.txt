@@ -2,4 +2,5 @@
                                   "NoDigitValidator.cpp"
                                   "IdValidator.cpp"
                                   "BaseField.cpp"
+                                  "Form.cpp"
                                  )
