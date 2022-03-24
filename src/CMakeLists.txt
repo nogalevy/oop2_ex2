@@ -1,2 +1,4 @@
 ﻿target_sources (oop2_ex02 PRIVATE "main.cpp"
+                                  "BaseField.cpp"
+                                  #"Field.cpp"
                                  )

@@ -2,16 +2,18 @@
 
 #include <iostream>
 #include <string>
-
-#include "BaseValidator.h"
-
+#include <vector>
 
 class BaseField {
-private:
-	BaseField() = default;
-	//void addValidator();
-	//virtual void validate() {m_validator.validate();}
 public:
-	std::vector<std::unique_ptr<BaseValidator>> m_validator;
+	BaseField(const std::string msg);
+	~BaseField() {};
+
+	virtual void fillField() = 0;
+	void setFieldValidity(const bool valid);
+	bool getFieldValidity()const;
+
+private:
 	std::string m_message;
+	bool m_isValid;
 };

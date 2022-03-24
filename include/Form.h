@@ -9,6 +9,7 @@
 class Form {
 public:
 	Form() = default;
+	//void fillForm();
 	//void addField();
 	//void addValidator();
 	//bool ValidateForm();
