@@ -4,13 +4,14 @@
 #include "BaseValidator.h"
 
 template<class T>
-class Field : public BaseField {
+class Field : public BaseField 
+{
 public:
 	Field(const std::string q);
 	virtual void addValidator(BaseValidator<T>* validator);
 	bool validate() {/*m_validator.validate(m_answer); */};
 private:
-	T m_answer
+	T m_answer;
 	std::vector<std::unique_ptr<BaseValidator<T>>> m_validator;
 };
 

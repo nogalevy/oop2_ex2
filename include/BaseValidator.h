@@ -11,5 +11,5 @@ public:
 
 	virtual bool validate(T answer)const = 0;
 private:
-	T m;
+	//T m;
 };
