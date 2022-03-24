@@ -2,13 +2,17 @@
 
 #include "BaseValidator.h"
 
+enum id_error_type { NONE, OVER_NINE_DIGITS, WRONG_CONTROL_DIGIT };
+
 class IDValidator : public BaseValidator<uint32_t>
 {
 public:
 	IDValidator();
 
 	virtual bool validate(uint32_t answer)const;
+	virtual std::string getErrorMsg();
 
-	bool isValidID(uint32_t id)const;
 private:
+	bool isValidID(uint32_t id);
+	enum id_error_type m_idErrorType;
 };

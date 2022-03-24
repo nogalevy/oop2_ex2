@@ -4,7 +4,8 @@
 #include "BaseValidator.h"
 
 template<class T>
-class Field : public BaseField {
+class Field : public BaseField 
+{
 public:
 	Field(const std::string q);
 
@@ -13,7 +14,7 @@ public:
 	bool validateField() override;
 	void printField(std::ostream& ostr) override;
 private:
-	T m_answer
+	T m_answer;
 	std::vector<BaseValidator<T>*> m_validator;
 };
 
