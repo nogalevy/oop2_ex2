@@ -42,7 +42,7 @@ void Field<T>::fillField()
 {
 	printQuestion();
 	std::cout << std::endl;
-	//std::cin >> m_answer;
+	std::cin >> m_answer;
 }
 
 //----------------------------------------------------
@@ -64,5 +64,5 @@ template<class T>
 void Field<T>::printField(std::ostream& ostr)
 {
 	printQuestion();
-	//ostr << " = " << m_answer;
+	ostr << " = " << m_answer << std::endl;
 }

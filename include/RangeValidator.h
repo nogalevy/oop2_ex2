@@ -29,7 +29,7 @@ RangeValidator<T>::RangeValidator(T min, T max)
 template<class T>
 bool RangeValidator<T>::validate(T answer)const
 {
-	return (answer > m_min && answer < m_max);
+	return (answer >= m_min && answer <= m_max);
 }
 
 template<class T>

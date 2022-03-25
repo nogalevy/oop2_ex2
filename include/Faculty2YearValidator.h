@@ -6,7 +6,7 @@ template <class T1, class T2>
 class Faculty2YearValidator : public BaseFormValidator
 {
 public:
-	Faculty2YearValidator(T1 faculty_field, T2 year_field);
+	Faculty2YearValidator(T1 *faculty_field, T2 *year_field);
 
 	virtual bool validate()const;
 	virtual std::string getErrorMsg();
@@ -17,7 +17,7 @@ private:
 
 
 template<class T1, class T2>
-Faculty2YearValidator<T1, T2>::Faculty2YearValidator(T1 faculty_field, T2 year_field)
+Faculty2YearValidator<T1, T2>::Faculty2YearValidator(T1 *faculty_field, T2 *year_field)
 	: m_facultyField(faculty_field) , m_yearField(year_field)
 {
 }
@@ -32,9 +32,10 @@ bool Faculty2YearValidator<T1, T2>::validate() const
 		(faculty == LITERATURE && inRange(1, 3, year)) ||
 		(faculty == MEDICINE && inRange(1, 7, year)))
 	{
+		//m_valid = true
 		return true;
 	}
-
+	//m_valid = false
 	return false;
 }
 
