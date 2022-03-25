@@ -3,4 +3,6 @@
                                   "IdValidator.cpp"
                                   "BaseField.cpp"
                                   "Form.cpp"
+                                  "FacultyValue.cpp"
+                                  "utilities.cpp"
                                  )

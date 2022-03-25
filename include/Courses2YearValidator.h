@@ -38,8 +38,7 @@ bool Courses2YearValidator<T1, T2>::validate() const
 	{
 		return true;
 	}
-		
-
+	
 	return false;
 }
 
