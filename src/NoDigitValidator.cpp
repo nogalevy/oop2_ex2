@@ -4,7 +4,7 @@ NoDigitValidator::NoDigitValidator()
 {
 }
 
-bool NoDigitValidator::validate(std::string answer)const
+bool NoDigitValidator::validate(const std::string& answer)
 {
 	return isNoDigits(answer);
 }

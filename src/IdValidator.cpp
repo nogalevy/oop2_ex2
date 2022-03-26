@@ -5,10 +5,9 @@ IDValidator::IDValidator()
 {
 }
 
-bool IDValidator::validate(uint32_t answer)const
+bool IDValidator::validate(const uint32_t& answer)
 {
-	return false;
-	//return isValidID(answer);
+	return isValidID(answer);
 }
 
 std::string IDValidator::getErrorMsg()
@@ -20,6 +19,7 @@ std::string IDValidator::getErrorMsg()
 	case WRONG_CONTROL_DIGIT:
 		return ID_CONTROL_DIGIT_ERROR_MSG;
 	default:
+		return " not sure what they want with me"; //Tali : always comes to here not sure why
 		break;
 	}
 }

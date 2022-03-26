@@ -10,7 +10,7 @@ public:
 	BaseValidator() {}
 	~BaseValidator() = default;
 
-	virtual bool validate(T answer)const = 0;
+	virtual bool validate(const T& answer) = 0; //Tali: do not put here const!! (on the outside)
 	virtual std::string getErrorMsg() = 0;
 private:
 	//T m;

@@ -6,7 +6,7 @@
 class FacultyValue
 {
 public:
-	FacultyValue();
+	FacultyValue(int faculty = 0);
 	~FacultyValue();
 
 	void setFaculty(int faculty);
@@ -19,6 +19,7 @@ private:
 
 std::ostream& operator<<(std::ostream& ostr, const FacultyValue& faculty_value);
 std::istream& operator>>(std::istream& istr, FacultyValue& faculty_value);
-
-//Noga: we need here <= and >= operators !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+bool operator>=(const FacultyValue& fv1, const FacultyValue& fv2);
+bool operator<=(const FacultyValue& fv1, const FacultyValue& fv2);
+bool operator==(const FacultyValue& fv1, const FacultyValue& fv2);
 

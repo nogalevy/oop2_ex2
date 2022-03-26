@@ -6,10 +6,26 @@ Form::~Form()
 
 void Form::fillForm()
 {
+	bool fields_correct = true;
+
 	for (auto& field : m_fields)
 	{
-		if(!field->getFieldValidity())
+		if (!field->getFieldValidity())
+		{
 			field->fillField();
+			fields_correct = false;
+		}
+	}
+	if (fields_correct)
+	{
+		for (auto & val2Fields : m_2FieldValidators)
+		{
+			if (!val2Fields->get2FieldValidity())
+			{
+				std::cout << val2Fields->getErrorMsg() << std::endl;
+				val2Fields->refillFields();
+			}
+		}
 	}
 }
 
@@ -35,6 +51,14 @@ bool Form::validateForm()
 		}
 	}
 
+	for (auto& formVal : m_2FieldValidators)
+	{
+		if (!(formVal->validate()))
+		{
+			valid = false;
+		}
+	}
+
 	return valid;
 }
 
@@ -42,12 +66,13 @@ void Form::printForm(std::ostream& ostr) const
 {
 	for (auto& field : m_fields)
 	{
+		//ostr << field << std::endl;
 		field->printField(ostr);
 	}
 }
 
-std::ostream& operator<<(std::ostream& ostr, const Form& my_form)
+std::ostream& operator<<(std::ostream& ostr, const Form& myForm)
 {
-	my_form.printForm(ostr);
+	myForm.printForm(ostr);
 	return ostr;
 }

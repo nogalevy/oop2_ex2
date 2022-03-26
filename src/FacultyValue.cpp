@@ -1,6 +1,6 @@
 #include "FacultyValue.h"
 
-FacultyValue::FacultyValue() : m_faculty(0)
+FacultyValue::FacultyValue(int faculty) : m_faculty(faculty)
 {
 }
 
@@ -48,3 +48,17 @@ std::istream& operator>>(std::istream& istr, FacultyValue& faculty_value)
 	return istr;
 }
 
+bool operator>=(const FacultyValue& fv1, const FacultyValue& fv2)
+{
+	return fv1.getFaculty() >= fv2.getFaculty();
+}
+
+bool operator<=(const FacultyValue& fv1, const FacultyValue& fv2)
+{
+	return fv1.getFaculty() <= fv2.getFaculty();
+}
+
+bool operator==(const FacultyValue& fv1, const FacultyValue& fv2)
+{
+	return fv1.getFaculty() == fv2.getFaculty();
+}

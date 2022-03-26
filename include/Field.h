@@ -2,6 +2,8 @@
 
 #include "BaseField.h"
 #include "BaseValidator.h"
+#include <iostream>
+#include <iomanip>
 
 template<class T>
 class Field : public BaseField 
@@ -13,10 +15,27 @@ public:
 	void fillField();
 	bool validateField();
 	void printField(std::ostream& ostr);
+	void printErrors(std::ostream& ostr);
+	T getAnswer()const;
 private:
 	T m_answer;
 	std::vector<BaseValidator<T>*> m_validator;
 };
+
+//----------------------------------------------------
+
+//template<class T>
+//std::ostream& operator<<(std::ostream& ostr, const Field<T>& myField)
+//{
+//	myField.printQuestion();
+//	ostr << " = " << myField.getAnswer();
+//
+//	if (!myField.getFieldValidity())
+//		myField.printErrors(ostr);
+//		
+//	ostr << std::endl;
+//	return ostr;
+//}
 
 //----------------------------------------------------
 
@@ -29,10 +48,9 @@ Field<T>::Field(const std::string q)
 //----------------------------------------------------
 
 template<class T>
-void Field<T>::addValidator(BaseValidator<T>* validator) //Tali: maybe  BaseValidator<T>* const validator - cause of address??
+void Field<T>::addValidator(BaseValidator<T>* validator)
 {
 	m_validator.emplace_back(validator);
-	std::cout << "added validator to field BRUH\n";
 }
 
 //----------------------------------------------------
@@ -60,9 +78,46 @@ bool Field<T>::validateField()
 	return getFieldValidity();
 }
 
+//----------------------------------------------------
+
 template<class T>
 void Field<T>::printField(std::ostream& ostr)
 {
 	printQuestion();
-	ostr << " = " << m_answer << std::endl;
+	ostr << " = " << m_answer;
+
+	if (!getFieldValidity())
+		printErrors(ostr);
+	
+	ostr << std::endl;
 }
+
+//----------------------------------------------------
+
+template<class T>
+T Field<T>::getAnswer()const
+{
+	return m_answer;
+}
+
+//----------------------------------------------------
+
+template<class T>
+void Field<T>::printErrors(std::ostream& ostr)
+{
+	for (auto& val : m_validator)
+		ostr << /*std::right <<*/ std::setw(50) /* << std::fixed */ << val->getErrorMsg();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

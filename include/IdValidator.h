@@ -9,7 +9,7 @@ class IDValidator : public BaseValidator<uint32_t>
 public:
 	IDValidator();
 
-	virtual bool validate(uint32_t answer)const;
+	virtual bool validate(const uint32_t& answer);
 	virtual std::string getErrorMsg();
 
 private:

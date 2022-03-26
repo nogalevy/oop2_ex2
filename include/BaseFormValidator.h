@@ -1,17 +1,19 @@
 #pragma once
 
 #include "utilities.h"
+#include "error_messages.h"
 
 class BaseFormValidator {
 public:
-	BaseFormValidator() /* : m_valid(true)*/ {}
+	BaseFormValidator();
 	~BaseFormValidator() = default;
 
-	virtual bool validate()const = 0;
+	virtual bool validate() = 0;
 	virtual std::string getErrorMsg() = 0;
 
-	//void setValid();
-	//bool getIsValid();
+	virtual void set2FieldValidity(const bool valid);
+	virtual bool get2FieldValidity()const;
+	virtual void refillFields() = 0;
 private:
-	//bool m_valid;
+	bool m_isValid;
 };

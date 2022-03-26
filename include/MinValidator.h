@@ -7,7 +7,7 @@ class MinValidator : public BaseValidator<T> {
 public:
 	MinValidator(T min);
 
-	virtual bool validate(T answer)const;
+	virtual bool validate(const T& answer);
 	virtual std::string getErrorMsg();
 
 private:
@@ -25,7 +25,7 @@ MinValidator<T>::MinValidator(T min)
 }
 
 template<class T>
-bool MinValidator<T>::validate(T answer)const
+bool MinValidator<T>::validate(const T& answer)
 {
 	return answer > m_min;
 }

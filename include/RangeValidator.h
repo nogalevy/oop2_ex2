@@ -8,12 +8,12 @@ class RangeValidator : public BaseValidator<T>
 public:
 	RangeValidator(T min, T max);
 	
-	virtual bool validate(T answer)const;
+	virtual bool validate(const T& answer);
 	virtual std::string getErrorMsg();
 
 private:
-	int m_min;
-	int m_max;
+	T m_min;
+	T m_max;
 };
 
 
@@ -27,7 +27,7 @@ RangeValidator<T>::RangeValidator(T min, T max)
 }
 
 template<class T>
-bool RangeValidator<T>::validate(T answer)const
+bool RangeValidator<T>::validate(const T& answer)
 {
 	return (answer >= m_min && answer <= m_max);
 }

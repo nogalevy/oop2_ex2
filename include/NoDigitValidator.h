@@ -7,7 +7,7 @@ class NoDigitValidator : public BaseValidator<std::string>
 {
 public:
 	NoDigitValidator();
-	virtual bool validate(std::string field)const;
+	virtual bool validate(const std::string& field);
 	virtual std::string getErrorMsg();
 
 private:

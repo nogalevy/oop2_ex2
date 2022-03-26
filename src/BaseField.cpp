@@ -20,3 +20,4 @@ void BaseField::printQuestion() const
 {
 	std::cout << m_question;
 }
+
