@@ -1,0 +1,74 @@
+﻿OOP2 ex2 - Template Form
+
+Written by: Tali Kalev (טלי כלב), ID:208629691
+            Noga Levy (נוגה לוי), ID:315260927
+
+General Description of the Assignment:
+    In this assignment we needed to implement a Form that the user must fill
+    the fields of until all inputed data meets the requirements. The program
+    begins by creating the required fields and validators. Once they are created,
+    in a loop, the user is asked to fill the required fields untill the form
+    is correctly filled.
+
+Design:
+    Classes: Form, BaseField, Field, BaseValidator, IdValidator, MinValidator, 
+             NoDigitValidator, RangeValidator, BaseFormValidator, 
+             Courses2YearValidator, Faculty2YearValidator, FacultyValue
+
+    Form:
+        - responsible for filling out and validating the required fields
+    BaseField:
+        - base class for Field
+    Field:
+        - template class responsible for filling out the required fields and checking validity
+    BaseValidator:
+        - base template class for validators of fields
+        - IdValidator, MinValidator, NoDigitValidator, and RangeValidator inherit
+          from this base class
+    IdValidator:
+        - validates the answer given to the field is a valid ID
+    MinValidator:
+        - validates that the answer given to the field is more than the predetermined
+          minimum value
+    NoDigitValidator:
+        - validates that the answer given does not contain digits
+    RangeValidator:
+        - validates that the answer given is within a predetermined range
+    BaseFormValidator:
+        - base class for validators of 2 fields in a form
+        - Courses2YearValidator and Faculty2YearValidator inherit from this base class
+    Courses2YearValidator:
+        - template class validates that the number of courses given alligns with the year given
+    Faculty2YearValidator:
+        - template class validates that the year given is within the facultys' program length
+    FacultyValue:
+        - class that represents the different facultys and their integer value
+        - defines operators on class
+
+Files:
+    - Form.h/Form.cpp: contains class Form
+    - BaseField.h/BaseField.cpp: contains class BaseField
+    - Field.h: contains base class Field
+    - BaseValidator.h: contains class BaseValidator
+    - IdValidator.h/IdValidator.cpp: contains class IdValidator
+    - MinValidator.h: contains class MinValidator
+    - NoDigitValidator.h/NoDigitValidator.cpp: contains class NoDigitValidator
+    - RangeValidator.h: contains class RangeValidator
+    - BaseFormValidator.h/BaseFormValidator.cpp: contains class BaseFormValidator
+    - Courses2YearValidator.h: contains class Courses2YearValidator
+    - Faculty2YearValidator.h: contains class Faculty2YearValidator
+    - utilities.h/utilities.cpp: contains constant variables
+    - error_messages.h: contains const string variables of different error messages
+
+Main Data Structures and their Jobs:
+   - see design above
+
+
+Notable Algorithms:
+
+
+Known Bugs:
+    - no known bugs
+
+Other General Notes:
+    - no other notes
