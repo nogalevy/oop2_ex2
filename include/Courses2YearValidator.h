@@ -7,7 +7,6 @@ class Courses2YearValidator : public BaseFormValidator
 {
 public:
 	Courses2YearValidator(T1 *num_of_courses_field, T2 *year_field);
-	~Courses2YearValidator();
 
 	virtual bool validate();
 	virtual std::string getErrorMsg();
@@ -24,15 +23,6 @@ template<class T1, class T2>
 Courses2YearValidator<T1, T2>::Courses2YearValidator(T1 *num_of_courses_field, T2 *year_field)
 	: m_numOfCoursesField(num_of_courses_field), m_yearField(year_field)
 {
-}
-
-//----------------------------------------------------
-
-template<class T1, class T2>
-Courses2YearValidator<T1, T2>::~Courses2YearValidator()
-{
-	delete m_numOfCoursesField;
-	delete m_yearField;
 }
 
 //----------------------------------------------------

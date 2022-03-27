@@ -6,7 +6,7 @@
 class BaseFormValidator {
 public:
 	BaseFormValidator();
-	~BaseFormValidator() = default;
+	virtual ~BaseFormValidator() = default;
 
 	virtual bool validate() = 0;
 	virtual std::string getErrorMsg() = 0;
