@@ -7,7 +7,7 @@ class Courses2YearValidator : public BaseFormValidator
 {
 public:
 	Courses2YearValidator(T1 *num_of_courses_field, T2 *year_field);
-	//Tali : deconstructor!!
+	~Courses2YearValidator();
 
 	virtual bool validate();
 	virtual std::string getErrorMsg();
@@ -18,6 +18,7 @@ private:
 
 };
 
+//----------------------------------------------------
 
 template<class T1, class T2>
 Courses2YearValidator<T1, T2>::Courses2YearValidator(T1 *num_of_courses_field, T2 *year_field)
@@ -25,10 +26,20 @@ Courses2YearValidator<T1, T2>::Courses2YearValidator(T1 *num_of_courses_field, T
 {
 }
 
+//----------------------------------------------------
+
+template<class T1, class T2>
+Courses2YearValidator<T1, T2>::~Courses2YearValidator()
+{
+	delete m_numOfCoursesField;
+	delete m_yearField;
+}
+
+//----------------------------------------------------
+
 template<class T1, class T2>
 bool Courses2YearValidator<T1, T2>::validate()
 {
-	//m_isValid = false;
 	set2FieldValidity(false);
 
 	auto courses_num = m_numOfCoursesField->getAnswer();
@@ -38,20 +49,21 @@ bool Courses2YearValidator<T1, T2>::validate()
 		(inRange(3, 4, year) && inRange(2, 10, courses_num)) ||
 		(year >= 5 && inRange(2, 8, courses_num)))
 	{
-		//m_isValid = true;
 		set2FieldValidity(true);
-
 	}
 	
-	//return m_isValid;
 	return get2FieldValidity();
 }
+
+//----------------------------------------------------
 
 template<class T1, class T2>
 std::string Courses2YearValidator<T1, T2>::getErrorMsg()
 {
 	return COURSE_YEAR_ERROR_MSG;
 }
+
+//----------------------------------------------------
 
 template<class T1, class T2>
 void Courses2YearValidator<T1, T2 >::refillFields()

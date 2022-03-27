@@ -20,13 +20,13 @@ std::string IDValidator::getErrorMsg()
 		return ID_CONTROL_DIGIT_ERROR_MSG;
 	case NONE:
 	default:
-		return " not sure what they want with me"; //Tali : always comes to here not sure why Noga: when?
+		return "";
 		break;
 	}
 }
 
 
-//took the idea from : https://github.com/atlanteh/israeli-id-validator
+
 bool IDValidator::isValidID(uint32_t id)
 {
 	std::string str_id = std::to_string(id);

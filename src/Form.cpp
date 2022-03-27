@@ -66,7 +66,6 @@ void Form::printForm(std::ostream& ostr) const
 {
 	for (auto& field : m_fields)
 	{
-		//ostr << field << std::endl;
 		field->printField(ostr);
 	}
 }

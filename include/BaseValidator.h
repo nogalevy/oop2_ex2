@@ -8,10 +8,8 @@ class BaseValidator
 {
 public:
 	BaseValidator() {}
-	~BaseValidator() = default;
+	virtual ~BaseValidator() = default;
 
-	virtual bool validate(const T& answer) = 0; //Tali: do not put here const!! (on the outside)
+	virtual bool validate(const T& answer) = 0;
 	virtual std::string getErrorMsg() = 0;
-private:
-	//T m;
 };
