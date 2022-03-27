@@ -18,8 +18,9 @@ std::string IDValidator::getErrorMsg()
 		return ID_LONG_ERROR_MSG;
 	case WRONG_CONTROL_DIGIT:
 		return ID_CONTROL_DIGIT_ERROR_MSG;
+	case NONE:
 	default:
-		return " not sure what they want with me"; //Tali : always comes to here not sure why
+		return " not sure what they want with me"; //Tali : always comes to here not sure why Noga: when?
 		break;
 	}
 }

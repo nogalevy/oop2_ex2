@@ -27,7 +27,7 @@ MinValidator<T>::MinValidator(T min)
 template<class T>
 bool MinValidator<T>::validate(const T& answer)
 {
-	return answer > m_min;
+	return answer >= m_min;
 }
 
 template<class T>
