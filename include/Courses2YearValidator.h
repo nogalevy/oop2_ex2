@@ -7,6 +7,7 @@ class Courses2YearValidator : public BaseFormValidator
 {
 public:
 	Courses2YearValidator(T1 *num_of_courses_field, T2 *year_field);
+	//Tali : deconstructor!!
 
 	virtual bool validate();
 	virtual std::string getErrorMsg();
