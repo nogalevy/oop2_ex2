@@ -17,6 +17,7 @@ private:
 	T2* m_yearField;
 };
 
+//----------------------------------------------------
 
 template<class T1, class T2>
 Faculty2YearValidator<T1, T2>::Faculty2YearValidator(T1 *faculty_field, T2 *year_field)
@@ -24,12 +25,16 @@ Faculty2YearValidator<T1, T2>::Faculty2YearValidator(T1 *faculty_field, T2 *year
 {
 }
 
+//----------------------------------------------------
+
 template<class T1, class T2>
 Faculty2YearValidator<T1, T2>::~Faculty2YearValidator()
 {
 	delete m_facultyField;
 	delete m_yearField;
 }
+
+//----------------------------------------------------
 
 template<class T1, class T2>
 bool Faculty2YearValidator<T1, T2>::validate() 
@@ -49,11 +54,15 @@ bool Faculty2YearValidator<T1, T2>::validate()
 	return get2FieldValidity();
 }
 
+//----------------------------------------------------
+
 template<class T1, class T2>
 std::string Faculty2YearValidator<T1, T2>::getErrorMsg()
 {
 	return FACULTY_YEAR_ERROR_MSG;
 }
+
+//----------------------------------------------------
 
 template<class T1, class T2>
 void Faculty2YearValidator<T1, T2>::refillFields()
@@ -61,3 +70,4 @@ void Faculty2YearValidator<T1, T2>::refillFields()
 	m_facultyField->fillField();
 	m_yearField->fillField();
 }
+

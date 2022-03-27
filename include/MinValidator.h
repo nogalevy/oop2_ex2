@@ -14,8 +14,6 @@ private:
 	T m_min;
 };
 
-
-
 //--------------------------------------------------
 
 template<class T>
@@ -24,11 +22,15 @@ MinValidator<T>::MinValidator(T min)
 {
 }
 
+//----------------------------------------------------
+
 template<class T>
 bool MinValidator<T>::validate(const T& answer)
 {
 	return answer >= m_min;
 }
+
+//----------------------------------------------------
 
 template<class T>
 inline std::string MinValidator<T>::getErrorMsg()

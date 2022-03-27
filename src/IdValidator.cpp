@@ -25,8 +25,6 @@ std::string IDValidator::getErrorMsg()
 	}
 }
 
-
-
 bool IDValidator::isValidID(uint32_t id)
 {
 	std::string str_id = std::to_string(id);

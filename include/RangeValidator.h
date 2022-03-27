@@ -16,9 +16,7 @@ private:
 	T m_max;
 };
 
-
 //---------------------------------------------------
-
 
 template<class T>
 RangeValidator<T>::RangeValidator(T min, T max)
@@ -26,11 +24,15 @@ RangeValidator<T>::RangeValidator(T min, T max)
 {
 }
 
+//----------------------------------------------------
+
 template<class T>
 bool RangeValidator<T>::validate(const T& answer)
 {
 	return (answer >= m_min && answer <= m_max);
 }
+
+//----------------------------------------------------
 
 template<class T>
 inline std::string RangeValidator<T>::getErrorMsg()

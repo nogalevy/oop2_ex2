@@ -5,7 +5,6 @@
 #include <cstdint> // for uint32_t
 #include <chrono>  // for currentYear() implementation
 
-//int main() {}
 //------------------- User includes ----------------------------
 
 // A class that represents a form. A form has many fields
